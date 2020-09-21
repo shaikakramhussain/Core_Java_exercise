@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling the Focus EVENT</title>
+</head>
+<body>
+    <script>
+        function highlightInput(elm){
+            elm.style.background = "yellow";
+        }
+    </script>
+    <h1>onfocus Event</h1>
+    <input type="text" onfocus="highlightInput(this)"><br><br>
+    <button type="button">Button</button>
+    <br>
+    <br>
+    <h1>onblur Event</h1>Phone Number:
+    <input type="text" onblur="alert('Please Enter Your 10 Digits Mobile Number!')">
+    <br><br>
+    <button type="button" onclick="alert('Entered Successfully')">Submit</button>
+    <p><strong>Note :</strong>
+    First Click inside the text input box then click outside to see how it works.</p>
+    <br>
+    <br>
+    <h1>onchange Event</h1>
+    <select onchange="alert('You have changed the selection!')">
+        <option>Select</option>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+    <p><strong>Note:</strong>Select any option in select box to see how it works.</p>
+    <h1>onsubmit Event</h1>
+    <form action="" method="post" onsubmit="alert('Form data will be submitted to the server!')">
+        <label>First Name:</label>
+        <input type="text" name="first-name" required>
+       <br>
+        <label>Phone Number:</label>
+        <input type="number" name="first-name" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

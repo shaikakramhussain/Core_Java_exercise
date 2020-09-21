@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX in Javascript</title>
+    <style>
+        body{
+            padding-left: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h3>AJAX in Javascript</h3>
+    <p>Please Enter Country Name</p>
+    <input type="text" name="country" id="country">
+    <p>
+        <button type="button" onclick="loadData()">Load Data</button>
+    </p>
+    Capital is : <span id="capital"></span>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" 
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+     crossorigin="anonymous"></script>
+    <script>
+        
+        function loadData(){
+            //
+            var country = document.getElementById("country").value;
+            //To send the AJAX Request( xhhtp )
+            var xhttp = new XMLHttpRequest(); // XMLHttpRequest object is Created
+            //property -> pass the annonymous function 
+            xhttp.onreadystatechange = function() {
+                if(xhttp.readyState == 4 && this.status == 200){
+                    var responseData = xhttp.responseText; 
+                    var jsonData = JSON.parse(responseData);//Converts Rawdata to JSON object
+
+                    var capital = jsonData[0].capital;
+                    document.getElementById("capital").innerHTML =capital;
+                    console.log(capital);
+                }
+            };
+            //To send the AJAX Request( xhhtp ) , URL , asynchronous in ajax(true)
+            xhttp.open("GET","https://restcountries.eu/rest/v2/name/"+country+"?fullText=true",true);
+            xhttp.send();
+
+            //call send method-> triggers ajax request
+
+            /*
+            onreadystatechange values:
+            0: request not initialized
+            1: server connection established
+            2: request received
+            3: processing request
+            4: request finished and response is ready
+            */
+        }
+    </script>
+</body>
+</html>

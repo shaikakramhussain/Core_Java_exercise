@@ -1,0 +1,55 @@
+I/O Stream:-
+-----------
+
+A stream is a sequence of data.
+a program uses an o/p stream to write a data to a destination, one time at a time.
+
+
+Streams->1)System.in InputStream
+	 2)System.out-> redirected to a file(PrintStream)
+	 3)System.err-> cant be redirected to a file.(PrintStream)
+
+I/O two types:
+Character and Byte Streams
+
+Byte stream-> two Abstract classes-> InputStream and OutputStream
+
+InputStream -> Basic, Arrays,Files,Pipes,Buffering,Filtering,Parsing,String, Data(Datainput stream),Data-Formatted, Objects,Utilities(Sequence input stream)
+CharacterStream->two Abstract classes-> Writer(Output) and Reader(Input)
+Internationalization is the main advantage
+-------------------------------------------------------------------------------------
+
+Console I/O:
+
+bytestream early days to perform console input .
+---------------------------------------------------------------------
+Serialization and Deserialization
+----------------------------------
+converting  objects->bytestream->n/w->Objects
+Process of converting objects into bytestreams
+
+To save the state of an object
+
+ObjectOutputStream->Serialized by writing.
+ObjectInputStream->deserialized by reading.
+-------------------------------------
+
+3 types:
+----
+Sequential File->one after the other
+Random Access File->records can be accessed in any order,
+	      ->direct access files,
+	       ->More efficient than sequential files
+read(only read),write(only write),readwrite(both read and write orderly),
+seek()->select a beginning position of the data.
+filepointer->indicates the cuttent location in the file
+getFilePointer(),length()
+
+How to create RAF:-
+-------------------
+
+
+Multi threading concept:
+---------------------------
+
+To save the Cpu ideal time

@@ -1,0 +1,76 @@
+********************
+Template Driven Form
+********************
+<div class="body">
+    <h2 class="text-center">SignUp Form</h2>
+    <form #signup="ngForm">
+        <!--Name Element-->
+        <input type="text" 
+        class="form-control" 
+        name="sname" 
+        #sname="ngModel"
+         [ngModel] 
+         placeholder="Name" 
+         required><br>
+        <div class="alert alert-danger" 
+        *ngIf="sname.invalid && sname.touched">
+        Please Enter Your Name
+        </div>
+        <!--Email Element-->
+        <input type="email" 
+        class="form-control" 
+        name="semail" 
+        #semail="ngModel" 
+        [ngModel] 
+        placeholder="Email" 
+        email 
+        required><br>
+        <div class="alert alert-danger" *ngIf="semail.errors?.required && semail.touched">
+            Email Is Required
+        </div>
+        <div class="alert alert-danger" *ngIf="semail.errors?.email && semail.touched">
+            Please Enter Email In Xyz@gmail.com
+        </div>
+
+        <!--Password Element-->
+        <input type="password" 
+        class="form-control" 
+        minlength="6"
+        name="spass" 
+        #spass="ngModel" 
+        [ngModel] 
+        placeholder="Password" 
+        required><br>
+        <div class="alert alert-danger" *ngIf="spass.errors?.required && spass.touched">
+            Please Enter Your Password
+        </div>
+        <div class="alert alert-danger" *ngIf="spass.errors?.minlength && spass.touched">
+           Password Should Be Atleast 6 Letters
+        </div>
+
+        <!--Confirm Password Element-->
+        <input type="password" 
+        class="form-control" 
+        name="scpass" 
+        #scpass="ngModel" 
+        [ngModel] 
+        placeholder="Confirm Password" 
+        required><br>
+        <div class="alert alert-danger" *ngIf="scpass.errors?.required && scpass.touched">
+            Please Enter Your Confirm Password
+        </div>
+        <div class="alert alert-danger" *ngIf="spass.value !==scpass.value && scpass.touched">
+            Password and Confirm Password Are Not Same
+        </div>
+
+        <button type="button" class="btn btn-primary" [disabled]="!signup.valid">
+            Submit
+        </button>
+        <br><br>
+        <button type="button" class="btn btn-info" (click)="signup.resetForm()">
+            Reset
+        </button>
+    </form>
+</div>
+<button (click)="test(signup)">Click</button>
+*************************************************************

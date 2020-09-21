@@ -1,0 +1,89 @@
+//1) Write a java program to convert a list to an array. 
+*******************************************************
+ListToArray.java : class
+--------------------------
+//Write a java program to convert a list to an array. 
+package com.app;
+import java.util.List;
+//A class called ListToArray is created.
+public class ListToArray {
+	//Static is accessed by using class name.
+	static void convertToArray(List<Integer> inputList){//static method is added name called: convertToArray
+		//This method takes a list of integers as an argument.
+		//It should convert the given list to an array of ints and return this array
+		Object[] array = inputList.toArray();
+		 for(Object s : array)
+	            System.out.println(s);	
+	}
+}
+
+--------------------------------------------------------------------------------
+Tester.java:Class
+------------------
+package com.app;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Tester {
+
+	//Static methods are accessed by the class name.
+	public static void main(String[] args) {//List(Parent) -> Interface, ArrayList->Child of List
+	List<Integer> list = new ArrayList<>();//Array list is implementation class of list interface(AbstractMethod->).
+	//Object is created by using new key word and list is object reference.
+	
+	//Note that the length of the array must be the same as that of the list
+	//objectreference.methodname
+	
+	list.add(0);
+	list.add(1);
+	list.add(2);
+	list.add(3);
+	System.out.println("Program to convert a list to an array."+list);
+	//It should convert the given list to an array of ints and return this array
+	ListToArray.convertToArray(list);
+	//ClassName.Methodname(argument)
+	}
+}
+//Note that the length of the array must be the same as that of the list.
+
+o/p:
+Program to convert a list to an array.[0, 1, 2, 3]
+0
+1
+2
+3
+
+------------------------------------------------------------------------------------------------------------------
+
+2) //Write a Java program to convert Array to List.
+**************************************************
+ArrayToList: class
+-----------------
+package com.app;
+import java.util.Arrays;
+import java.util.List;
+//A class called ArrayToList is created.
+public class ArrayToList {
+	
+	static void convertToList(String[] inputArray){//static method added : convertToList
+		//This method takes an array of strings as an argument
+		List<String> asList = Arrays.asList(inputArray);
+		System.out.println(asList);
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------
+Checker.java: class
+-------------------
+package com.app;
+public class Checker {
+	public static void main(String[] args) {
+		Integer[] arr = {101,102,103,104};
+		String[] str = {"Shaik","Akram","Hussain"};
+		//It should convert the given array to a list of Strings and return this list. 
+		ArrayToList.convertToList(str);
+	}
+
+}
+O/p:
+[Shaik, Akram, Hussain]
+******************************************************************************************************************************

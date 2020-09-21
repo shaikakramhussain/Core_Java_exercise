@@ -1,0 +1,135 @@
+1)
+package com.iopack;
+
+	import java.io.BufferedReader;
+	import java.io.FileInputStream;
+	import java.io.FileNotFoundException;
+	import java.io.FileReader;
+	import java.io.IOException;
+	import java.io.InputStream;
+	import java.io.InputStreamReader;
+
+	public class Iostream {
+
+		public static void main(String[] args) throws IOException {
+			
+	        FileInputStream fi=new FileInputStream("./src/com/iopack/Test.txt");
+	         InputStreamReader in=new InputStreamReader(fi);
+	         BufferedReader br = new BufferedReader(in);
+	         String data;
+	         StringBuilder sb = new StringBuilder();
+	       while((data = br.readLine()) != null) {
+	    	   for(int i=0;i<data.length();i++) {
+	    		   sb.append(data.charAt(i));
+	    		   
+	    	   }
+	       }
+	       String d=sb.toString();
+	       System.out.println(d.replaceAll("\\s+"," "));       
+	         fi.close();
+	         in.close();   
+			
+		}
+
+
+Test.txt:-
+-----------
+--> file contain
+Hii i      am         Akram
+  punch it
+
+
+===================================
+Input--> the data in the text file-->
+Hii i      am         Akram
+  punch it
+Output-->
+Hii i am Akram punch it
+-----------------------------------------------------------------------------------------
+
+
+2)package com.iopack;
+
+	import java.util.ArrayList;
+	import java.util.List;
+	import java.util.OptionalDouble;
+	import java.util.OptionalInt;
+
+	class Employees {
+		int id;
+	   	 String name;
+	   	 String domain;
+	   	 int salary;
+		public Employees(int id, String name, String domain, int salary) {
+			super();
+			this.id = id;
+			this.name = name;
+			this.domain = domain;
+			this.salary = salary;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getDomain() {
+			return domain;
+		}
+		public void setDomain(String domain) {
+			this.domain = domain;
+		}
+		public int getSalary() {
+			return salary;
+		}
+		public void setSalary(int salary) {
+			this.salary = salary;
+		}
+		@Override
+		public String toString() {
+			return "Employees [id=" + id + ", name=" + name + ", domain=" + domain + ", salary=" + salary + "]";
+		}
+	   	 
+	}
+
+
+	public class Assignment {
+
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+	         List<Employees> li=new ArrayList<>();
+	         li.add(new Employees(1001,"Ramesh","Assistant Engineer",15000));
+	         li.add(new Employees(1002,"David","Assistant Engineer",25000));
+	         li.add(new Employees(1003,"Rahim","Engineer",20000));
+	         
+	         //To calculate the average salary of all the employees
+	         OptionalDouble avgSalary = li.stream()
+	     .mapToInt((p) -> p.getSalary())
+	     .average();
+	         System.out.println(avgSalary+"avgSalary");
+	         //To print the names of all the Assistant Engineers
+	         for(int i=0;i<li.size();i++){               
+	           if(li.get(i).getName().length()>0){      
+	             System.out.println(li.get(i).getName());
+	           }
+	           
+	      }
+	         
+	         
+	         
+		}
+
+	}
+O/P:-
+-----
+OptionalDouble[20000.0]avgSalary
+Venu
+Mahesh
+Aditya
+-----------------------------------------------------------------------------------------

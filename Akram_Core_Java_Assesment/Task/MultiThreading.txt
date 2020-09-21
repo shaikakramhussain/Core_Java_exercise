@@ -1,0 +1,22 @@
+
+		Multi threading concept:
+-----------------------------------------------
+*)Multitasking allows CPU to perform multiple tasks 
+(program, process, task, threads) simultaneously
+
+*)Multithreading allows multiple threads 
+of the same process to execute simultaneously.
+To save the Cpu ideal time
+
+
+
+Life Cycle Of thread:
+-------------------
+States:
+-------
+NEW(Initial State)-(By using Start() the thread)-> JVM
+Ready/Runnable-(Thread Scheduler allocates the processor)->
+Running-(if run()method completes)->
+Dead->
+MyThread t = new MyThread();
+

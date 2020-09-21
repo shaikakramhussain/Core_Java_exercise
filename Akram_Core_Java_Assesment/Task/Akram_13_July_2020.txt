@@ -1,0 +1,48 @@
+1).Employee Leave Management System using Exception handling
+-------------------------------------------------------------
+package com.exception;
+import java.util.Scanner;
+
+public class LeaveSystem extends Exception {
+
+	private static int total = 20;
+	private static int leaves;
+	private static int rem;
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Total leaves are 20");
+		System.out.println("Apply leaves for days:");
+		leaves = sc.nextInt();
+
+		try {
+			if (leaves < total) {
+				rem = total - leaves;
+				System.out.println("Your leave is sanctioned and remaining leave balance:" + rem);
+			} else if (leaves > total) {
+				LeaveSystem ls = new LeaveSystem();
+				throw ls;
+			}
+		} 
+		catch (LeaveSystem e) {
+			System.out.println("You don't have leave balance");
+			e.printStackTrace();
+		}
+	}
+}
+----------------------------------------------------------
+O/p1:
+Total leaves are 20
+Apply leaves for days:
+2
+Your leave is sanctioned and remaining leave balance:18
+----------------------------------------------------------
+O/p2:
+Total leaves are 20
+Apply leaves for days:
+30
+You don't have leave balance
+com.corejava_task.LeaveSystem
+	at com.corejava_task.LeaveSystem.main(LeaveSystem.java:22)
+-----------------------------------------------------------------------------------------------------------------------------

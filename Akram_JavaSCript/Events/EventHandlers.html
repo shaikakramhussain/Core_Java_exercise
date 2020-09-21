@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Attaching Event Handlers Inline</title>
+</head>
+<body>
+    <!-- <button type="button" onclick="alert('Hi')">Click Me</button>     -->
+
+    <button type="button" id="myBtn">Click</button>
+    <script>
+        function sayHi(){
+            alert("Hi JavaScript");
+        }
+        document.getElementById("myBtn").onclick = sayHi;
+    </script>
+
+</body>
+</html>

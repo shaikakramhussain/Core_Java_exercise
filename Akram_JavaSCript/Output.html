@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>JavaSCript document.write() output method</title> -->
+    <title></title>
+</head>
+<body>
+    <h4>JavaSCript innerHTML Output Method</h4>    
+    <script>
+        //window.alert("Hi friends , How are you?");
+        // document.write("Welcome to OJas");
+        
+        function getcube(){
+            var number = document.getElementById("cube").value;
+            alert(number*number*number);
+        }
+
+        
+        function getsquare(){
+            var number = document.getElementById("square").value;
+            alert(number*number);
+        }
+    </script>
+    <form>
+        Enter No:<input type="text" id="square" name="number/"><br>
+        <input type="button" value="submit" onclick="getsquare()">
+    </form>
+</body>
+</html>

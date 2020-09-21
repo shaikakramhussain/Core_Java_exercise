@@ -1,0 +1,56 @@
+Setcopy.java :Class
+-------
+package com.corejava_task;
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class Setcopy {
+
+	public int copySets(HashSet<Integer> source, HashSet<Integer> destination) {
+
+		Iterator<Integer> ite = source.iterator();
+		if (source.isEmpty() == true || destination.isEmpty() == true) {
+			return 1;
+		} else {
+			while (ite.hasNext()) {
+				destination.add(ite.next());				
+			}
+			System.out.println("After adding new list is: "+destination);
+			return 0;
+		}	
+	}
+}
+
+
+SetCopyTest.java : class
+------------------
+package com.corejava_task;
+import java.util.HashSet;
+
+public class SetCopyTest {
+
+	public static void main(String[] args) {
+		HashSet<Integer> srclist = new HashSet<>();
+		HashSet<Integer> deslist = new HashSet<>();
+		
+		//Source list elements
+		srclist.add(50);
+		srclist.add(51);
+		srclist.add(52);
+		
+		//Destination list elements
+		deslist.add(100);
+		deslist.add(101);
+		deslist.add(102);
+		
+		Setcopy sc = new Setcopy();
+		int result = sc.copySets(srclist, deslist);
+		System.out.println(result);
+	}
+}
+
+
+
+o/p:
+After adding new list is: [50, 51, 100, 52, 101, 102]
+0
